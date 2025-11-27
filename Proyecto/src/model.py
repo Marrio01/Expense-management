@@ -3,7 +3,7 @@ import pandas as pd
 import datetime as dt
 from typing import Optional, Dict
 
-# mismo diccionario de abreviaturas que usamos en etl.py
+# mismo diccionario de abreviaturas de etl.py
 MONTH_ABBR = {
     1: "ene", 2: "feb", 3: "mar", 4: "abr",
     5: "may", 6: "jun", 7: "jul", 8: "ago",
@@ -37,7 +37,7 @@ def _make_week_label(start: dt.date, end: dt.date) -> str:
     if start.month == end.month:
         label = f"{start.day}-{end.day} {MONTH_ABBR[start.month]}"
     else:
-        # cuando cruza de mes, usamos solo el mes del final (como en tu hoja)
+        # cuando cruza de mes, usamos solo el mes del final 
         label = f"{start.day}-{end.day} {MONTH_ABBR[end.month]}"
     return label
 

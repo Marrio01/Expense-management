@@ -60,9 +60,9 @@ def normalizar(df: pd.DataFrame) -> pd.DataFrame:
     out = out.dropna(subset=["date"]).reset_index(drop=True)
     out["amount"] = out["amount"].fillna(0.0)
 
-    # ---------- semanas organizadas como tu hoja ----------
+    # ---------- semanas organizadas ----------
 
-    # fecha mínima: donde empieza la primera semana (17/08/2025 en tu caso)
+    # fecha mínima: donde empieza la primera semana
     first_date = out["date"].min().date()
 
     # helper para calcular índice de semana y rango (inicio/fin)
@@ -109,7 +109,7 @@ def normalizar(df: pd.DataFrame) -> pd.DataFrame:
         if s.month == e.month:
             label = f"{s.day}-{e.day} {month_abbr[s.month]}"
         else:
-            # solo mostramos el mes del final, como en tu Excel: "30-5 sept"
+            # solo el mes del final, como en el Excel: "30-5 sept"
             label = f"{s.day}-{e.day} {month_abbr[e.month]}"
         labels.append(label)
 
